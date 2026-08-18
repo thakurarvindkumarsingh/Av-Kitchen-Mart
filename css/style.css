@@ -935,77 +935,194 @@ body{
     font-size: 35px;
     font-weight: 600;
     color: #ff6b00;
-    cursor: pointer;
-    line-height: 1;
-    padding-bottom: 4px; /* Alignment vertical fix */
+/* ================= RESPONSIVE MEDIA QUERIES (CLEAN & FIXED) ================= */
+
+/* Mobile & Tablet Styles (Below 992px) */
+@media screen and (max-width: 991px) {
+    .header {
+        padding: 12px 5%;
+    }
+
+    /* Logo Fix for Mobile */
+    .logo img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+
+    .logo p {
+        font-size: 11px;
+    }
+
+    .header-btn {
+        display: none !important;
+    }
+
+    .menu-btn {
+        display: block !important;
+        font-size: 26px;
+        cursor: pointer;
+        color: #222;
+    }
+
+    /* Side Drawer Menu Base */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Default hidden */
+        width: 280px;
+        max-width: 80%;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.2);
+        transition: left 0.35s ease-in-out;
+        z-index: 999999;
+        display: block !important;
+        overflow-y: auto;
+    }
+
+    /* Open Class when clicked on Menu */
+    .navbar.open {
+        left: 0;
+    }
+
+    .drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .drawer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .drawer-logo img {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .drawer-logo span {
+        font-size: 17px;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    .close-menu {
+        font-size: 32px;
+        font-weight: 600;
+        color: #ff6b00;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .navbar ul {
+        display: flex !important;
+        flex-direction: column !important;
+        list-style: none !important;
+        padding: 0;
+        margin: 0;
+        gap: 0 !important;
+    }
+
+    .navbar ul li {
+        width: 100%;
+        list-style: none;
+    }
+
+    .navbar ul li a {
+        display: block;
+        padding: 15px 20px;
+        color: #333;
+        font-size: 16px;
+        font-weight: 500;
+        border-bottom: 1px solid #f0f0f0;
+        text-decoration: none;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+        background: #fff6f0;
+        color: #ff6b00;
+    }
+
+    /* Backdrop Overlay */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        z-index: 999998;
+    }
+
+    .nav-overlay.show {
+        display: block;
+    }
+
+    .category-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Baki existing ul ko thoda clean margin dene ke liye */
-.navbar ul {
-    flex-direction: column;
-    gap: 0;
-    padding: 0; /* Extra top space reset */
-}
-
-@media(max-width: 768px){
+/* Phone Layout Tweaks */
+@media screen and (max-width: 768px) {
     .hero {
         text-align: center;
         justify-content: center;
-        padding: 140px 25px 80px;
+        padding: 120px 20px 60px;
+        height: auto;
+        min-height: 100vh;
     }
 
-    .hero h1 { font-size: 36px; }
-    .hero p { font-size: 16px; line-height: 28px; }
-    .hero-buttons { justify-content: center; }
-    .counter { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-    .contact-container { grid-template-columns: 1fr; }
-    .footer { text-align: center; }
-    .social-links { justify-content: center; }
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .counter {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
 }
 
-@media(max-width: 600px){
-    .category-container { grid-template-columns: 1fr; }
-}
+@media screen and (max-width: 550px) {
+    .category-container {
+        grid-template-columns: 1fr;
+    }
 
-@media(max-width: 500px){
-    .counter { grid-template-columns: 1fr; }
-}
-
-/* Thumbnails Container - Ekdum clean aur gap kam */
-.product-thumbnails {
-    display: flex;
-    gap: 6px;
-    padding: 0 15px;
-    margin-top: 8px; /* Card ke content se choti gap */
-    margin-bottom: 5px;
-    overflow-x: auto;
-}
-
-/* Choti images (Thumbnails) ko ekdum chota icon size banaya */
-.thumb-img {
-    width: 35px;        /* Isse icon size ban jayega */
-    height: 35px;       /* Ekdum perfect square box */
-    object-fit: cover;
-    border: 1.5px solid #ddd;
-    border-radius: 6px; /* Halki si rounded corner */
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-/* Hover karne par orange border */
-.thumb-img:hover {
-    border-color: #ff6b00;
-    transform: scale(1.05); /* Chota sa pop animation */
-}
-
-/* Active status indicator */
-.active-thumb {
-    border-color: #ff6b00;
-    background-color: rgba(255, 107, 0, 0.05);
-}
-
-/* Scrollbar ko chhupane ke liye taaki ganda na dikhe */
-.product-thumbnails::-webkit-scrollbar {
-    height: 0px;
-    background: transparent;
-}
+    .counter {
+        grid-template-columns: 1fr;
+    }
+        }
