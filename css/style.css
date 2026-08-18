@@ -935,23 +935,24 @@ body{
     font-size: 35px;
     font-weight: 600;
     color: #ff6b00;
-/* ================= RESPONSIVE MEDIA QUERIES (CLEAN & FIXED) ================= */
+}
+/* ================= RESPONSIVE MEDIA QUERIES (FINAL FIXED) ================= */
 
-/* Mobile & Tablet Styles (Below 992px) */
+/* Tablet & Mobile Screens (Below 992px) */
 @media screen and (max-width: 991px) {
     .header {
         padding: 12px 5%;
     }
 
-    /* Logo Fix for Mobile */
+    /* Logo Mobile Fit */
     .logo img {
-        width: 48px;
-        height: 48px;
+        width: 45px;
+        height: 45px;
         object-fit: contain;
     }
 
     .logo h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .logo p {
@@ -969,11 +970,11 @@ body{
         color: #222;
     }
 
-    /* Side Drawer Menu Base */
+    /* Slide-in Mobile Drawer */
     .navbar {
         position: fixed;
         top: 0;
-        left: -100%; /* Default hidden */
+        left: -100%; /* Hidden by default */
         width: 280px;
         max-width: 80%;
         height: 100vh;
@@ -985,9 +986,9 @@ body{
         overflow-y: auto;
     }
 
-    /* Open Class when clicked on Menu */
+    /* Active state when drawer opens */
     .navbar.open {
-        left: 0;
+        left: 0 !important;
     }
 
     .drawer-header {
@@ -1005,14 +1006,14 @@ body{
     }
 
     .drawer-logo img {
-        width: 38px;
-        height: 38px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         object-fit: cover;
     }
 
     .drawer-logo span {
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 700;
         color: #1f2937;
     }
@@ -1043,7 +1044,7 @@ body{
         display: block;
         padding: 15px 20px;
         color: #333;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         border-bottom: 1px solid #f0f0f0;
         text-decoration: none;
@@ -1055,7 +1056,7 @@ body{
         color: #ff6b00;
     }
 
-    /* Backdrop Overlay */
+    /* Screen Backdrop */
     .nav-overlay {
         position: fixed;
         top: 0;
@@ -1076,18 +1077,18 @@ body{
     }
 }
 
-/* Phone Layout Tweaks */
+/* Mobile Screen Layout Adjustments (Below 768px) */
 @media screen and (max-width: 768px) {
     .hero {
         text-align: center;
         justify-content: center;
-        padding: 120px 20px 60px;
+        padding: 130px 20px 60px;
         height: auto;
         min-height: 100vh;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .hero p {
@@ -1117,6 +1118,7 @@ body{
     }
 }
 
+/* Small Screen Phones (Below 550px) */
 @media screen and (max-width: 550px) {
     .category-container {
         grid-template-columns: 1fr;
