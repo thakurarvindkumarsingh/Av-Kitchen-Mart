@@ -66,7 +66,7 @@ if (productContainer && typeof products !== 'undefined') {
             ${thumbnailsHTML} <h3>${product.name}</h3>
             <h4>${product.price}</h4>
             <p>${product.category}</p>
-            <a href="https://wa.me/919999999999" class="buy-btn" target="_blank">WhatsApp Inquiry</a>
+            <a href="https://wa.me/919555261054" class="buy-btn" target="_blank">WhatsApp Inquiry</a>
         </div>`;
     });
 }
@@ -125,8 +125,8 @@ if (serviceContainer && typeof services !== 'undefined') {
                     <h3>${service.title}</h3>
                     <p>${service.description}</p>
                     <div class="service-buttons">
-                        <a href="tel:+919999999999" class="call-btn">Call Now</a>
-                        <a href="https://wa.me/919999999999" class="whatsapp-btn" target="_blank">WhatsApp</a>
+                        <a href="tel:+919555261054" class="call-btn">Call Now</a>
+                        <a href="https://wa.me/919555261054" class="whatsapp-btn" target="_blank">WhatsApp</a>
                     </div>
                 </div>
             </div>`;
