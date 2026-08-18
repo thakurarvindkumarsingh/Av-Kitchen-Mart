@@ -178,3 +178,34 @@ if (scrollBtn) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
+
+// === 7. Close drawer + smooth-scroll to section on nav link click (mobile-friendly) ===
+// This makes the mobile UX nicer: when a nav link (anchor) is clicked the page scrolls to the section
+// and the drawer/overlay is closed automatically.
+(function enableAnchorNavClose() {
+  const navLinks = document.querySelectorAll('#navbarMenu a');
+  if (!navLinks || navLinks.length === 0) return;
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return; // ignore external links
+
+      // Prevent default so we can offset for header and close drawer
+      e.preventDefault();
+
+      const target = document.querySelector(href);
+      if (target) {
+        // calculate offset to avoid hidden content under fixed header
+        const headerEl = document.querySelector('.header');
+        const headerOffset = headerEl ? headerEl.offsetHeight : 70;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+
+      // close drawer if open
+      if (navbarMenu) navbarMenu.classList.remove('open');
+      if (navOverlay) navOverlay.classList.remove('show');
+    });
+  });
+})();
